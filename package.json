@@ -10,9 +10,13 @@
     "format": "prettier src/ --write"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.4.8",
+    "@tabler/icons-react": "^3.19.0",
+    "framer-motion": "^11.11.1",
+    "next": "15.0.0-canary.179",
+    "next-themes": "^0.3.0",
     "react": "19.0.0-rc-2d16326d-20240930",
-    "react-dom": "19.0.0-rc-2d16326d-20240930",
-    "next": "15.0.0-canary.179"
+    "react-dom": "19.0.0-rc-2d16326d-20240930"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
