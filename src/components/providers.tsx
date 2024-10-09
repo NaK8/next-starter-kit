@@ -1,4 +1,7 @@
+"use client";
+
 import { NextUIProvider } from "@nextui-org/react";
+import { SessionProvider } from "next-auth/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export default function Prodviders({
@@ -7,8 +10,10 @@ export default function Prodviders({
   children: React.ReactNode;
 }) {
   return (
-    <NextUIProvider className="flex h-screen w-screen flex-col">
-      <NextThemesProvider attribute="class">{children}</NextThemesProvider>
-    </NextUIProvider>
+    <SessionProvider>
+      <NextUIProvider className="flex h-screen w-screen flex-col">
+        <NextThemesProvider attribute="class">{children}</NextThemesProvider>
+      </NextUIProvider>
+    </SessionProvider>
   );
 }

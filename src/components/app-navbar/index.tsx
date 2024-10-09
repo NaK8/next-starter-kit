@@ -15,6 +15,7 @@ import {
 } from "@nextui-org/react";
 import { IconPackage } from "@tabler/icons-react";
 
+import AuthButton from "./auth-button";
 import { ThemeSwitcher } from "./theme-switcher";
 
 type MenuItemsTypes = {
@@ -60,11 +61,14 @@ export default function AppNavbar() {
         <NavbarItem>
           <ThemeSwitcher />
         </NavbarItem>
+        <NavbarItem>
+          <AuthButton minimal={false} />
+        </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
-        <NavbarItem className="mb-[-5px]">
+        <NavbarMenuItem className="mb-[-5px]">
           <ThemeSwitcher showLabel />
-        </NavbarItem>
+        </NavbarMenuItem>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link className="w-full" href={item.href}>
@@ -72,6 +76,9 @@ export default function AppNavbar() {
             </Link>
           </NavbarMenuItem>
         ))}
+        <NavbarMenuItem>
+          <AuthButton />
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );

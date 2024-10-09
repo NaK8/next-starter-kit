@@ -5,7 +5,8 @@
     "prettier"
   ],
   "plugins": [
-    "check-file"
+    "check-file",
+    "n"
   ],
   "rules": {
     "prefer-arrow-callback": "error",
@@ -15,6 +16,7 @@
       "error",
       "double"
     ],
+    "n/no-process-env": "error",
     "check-file/filename-naming-convention": [
       "error",
       {
@@ -27,7 +29,7 @@
     "check-file/folder-naming-convention": [
       "error",
       {
-        "src/**": "KEBAB_CASE"
+        "src/**/!^[.*": "KEBAB_CASE"
       }
     ]
   }
