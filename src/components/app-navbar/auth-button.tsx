@@ -49,7 +49,7 @@ const AuthButton = ({ minimal = true }: { minimal?: boolean }) => {
               color="danger"
               onClick={() => signOut({ callbackUrl: "/" })}
             >
-              Log Out
+              Sign Out
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>

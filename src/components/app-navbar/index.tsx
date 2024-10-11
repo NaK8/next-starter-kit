@@ -14,6 +14,7 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import { IconPackage } from "@tabler/icons-react";
+import { useSession } from "next-auth/react";
 
 import AuthButton from "./auth-button";
 import { ThemeSwitcher } from "./theme-switcher";
@@ -25,17 +26,21 @@ type MenuItemsTypes = {
 
 export default function AppNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { status } = useSession();
 
   const menuItems: MenuItemsTypes[] = [
     {
       label: "Home",
       href: "/",
     },
-    {
+  ];
+
+  if (status === "authenticated") {
+    menuItems.push({
       label: "Profile",
       href: "/profile",
-    },
-  ];
+    });
+  }
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -46,7 +51,9 @@ export default function AppNavbar() {
         />
         <NavbarBrand>
           <IconPackage />
-          <p className="font-bold text-inherit">Next.js Starter</p>
+          <Link className="font-bold text-inherit" href={"/"}>
+            Next.js Starter
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
